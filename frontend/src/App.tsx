@@ -3,8 +3,8 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Listing from 'pages/Listing/main';
-import Form from 'pages/Form/main';
+import Listing from 'pages/Listing';
+import Form from 'pages/Form';
 import Navbar from 'componentes/Navbar/index';
 
 function App() {

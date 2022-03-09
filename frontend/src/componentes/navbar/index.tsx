@@ -1,7 +1,8 @@
-import {ReactComponent as Image} from "assets/image.svg";
+import {ReactComponent as Image} from 'assets/img/git.svg';
 import './style.css';
 
 function Navbar() {
+
     return (
         <header>
             <nav className="container">
@@ -17,6 +18,7 @@ function Navbar() {
             </nav>
         </header>
     );
+    
 }
 
 export default Navbar;
