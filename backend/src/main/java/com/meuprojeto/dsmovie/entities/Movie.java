@@ -1,9 +1,17 @@
 package com.meuprojeto.dsmovie.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
-@Entity 
+@Entity
+@Table(name = "tb_movie")
 public class Movie {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
 	private Double score;

@@ -1,8 +1,18 @@
 package com.meuprojeto.dsmovie.entities;
 
+import javax.persistence.Embeddable;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapKeyJoinColumn;
+
+@Embeddable
 public class ScorePk {
 	
+	@ManyToOne
+	@MapKeyJoinColumn(name = "movie-id")
 	private Movie movie;
+	
+	@ManyToOne
+	@MapKeyJoinColumn(name = "user-id")
 	private User user;
 	
 	public ScorePk() {
