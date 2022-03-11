@@ -1,18 +1,22 @@
 package com.meuprojeto.dsmovie.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapKeyJoinColumn;
 
 @Embeddable
-public class ScorePk {
-	
+public class ScorePk implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@ManyToOne
-	@MapKeyJoinColumn(name = "movie-id")
+	@JoinColumn(name = "movie-id")
 	private Movie movie;
 	
 	@ManyToOne
-	@MapKeyJoinColumn(name = "user-id")
+	@JoinColumn(name = "user-id")
 	private User user;
 	
 	public ScorePk() {
