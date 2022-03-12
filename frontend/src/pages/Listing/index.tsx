@@ -4,6 +4,7 @@ import { useState} from 'react';
 import {useEffect } from 'react';
 import axios from 'axios';
 import {MoviePage} from 'types/movie';
+import { BASE_URL } from 'utils/request';
 
 function Listing() {
 
