@@ -5,6 +5,7 @@ import { BASE_URL } from 'utils/request';
 import { useState} from 'react';
 import {useEffect } from 'react';
 import axios from 'axios';
+import './style.css';
 
 function Listing() {
 
