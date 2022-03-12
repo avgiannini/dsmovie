@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
-import { BASE_URL } from 'utils/request';
 import './style.css'; 
 
 type Props = {
