@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
+
 @Service
 public class ScoreService {
 
@@ -28,29 +30,38 @@ public class ScoreService {
     public MovieDTO saveScore(ScoreDTO scoreDTO) {
         User user = userRepository.findByEmail(scoreDTO.getEmail());
 
-        if(user == null) {
+        if (user == null) {
             user = new User();
             user.setEmail(scoreDTO.getEmail());
-            user = userRepository.saveAllAndFlush(user);
+            user = userRepository.saveAndFlush(user);
         }
 
-        Movie movie = movieRepository.findById(scoreDTO.getMovieId()).get();
+        Movie movie = movieRepository.findById(scoreDTO.getMovieId()).orElse(null);
 
         Score score = new Score();
         score.setMovie(movie);
-        Score.setUser(user);
-        Score.setValue(scoreDTO.getScore());
-        score = scoreRepository.saveAllAndFlush(score);
+        score.setUser(user);
+        score.setValue(scoreDTO.getScore());
+        scoreRepository.saveAndFlush(score);
 
         double sum = 0.0;
-        for (Score added: movie.getScore()) {
-            sum = sum + added.getValue();
+
+        if (Objects.nonNull(movie)) {
+            for (Score added : movie.getScores()) {
+                sum = sum + added.getValue();
+            }
+
+            double avg = sum / movie.getScores().size();
+            movie.setScore(avg);
+            movie.setCount(movie.getScores().size());
+
+            movie = movieRepository.save(movie);
+
+            return new MovieDTO(movie);
         }
 
-        Double avg = sum / movie.getScores().size();
-        movie.getScore(avg);
-        movie.setCount(movie.getScores().size());
-        movie = movieRepository.save(movie);
+        return null;
 
-        return new movieDTO(movie);
+    }
+
 }

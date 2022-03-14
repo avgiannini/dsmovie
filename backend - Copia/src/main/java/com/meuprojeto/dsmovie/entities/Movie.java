@@ -17,7 +17,7 @@ public class Movie {
 	private String image;
 
 	@OneToMany(mappedBy = "id.movie")
-	private Set<Score> scores = new HashSet<>()
+	private final Set<Score> scores = new HashSet<>();
 	
 	public Movie() {
 		

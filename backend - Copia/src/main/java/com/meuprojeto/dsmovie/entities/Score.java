@@ -20,7 +20,7 @@ public class Score {
 		id.setMovie(movie);
 	}
 	
-	public static void setUser(User user) {
+	public void setUser(User user) {
 		id.setUser(user);
 	}
 
@@ -36,7 +36,7 @@ public class Score {
 		return value;
 	}
 
-	public static void setValue(Double value) {
+	public  void setValue(Double value) {
 		this.value = value;
 	}
 
