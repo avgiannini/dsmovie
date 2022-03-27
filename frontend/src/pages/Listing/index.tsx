@@ -1,9 +1,9 @@
 import { useState} from 'react';
 import {useEffect } from 'react';
 import axios from 'axios';
-import { MoviePage } from 'Types/movie';
-import Pagination from 'componentes/Pagination';
-import MovieCard from 'componentes/MovieCard';
+import { MoviePage } from 'types/movie';
+import Pagination from 'components/Pagination';
+import MovieCard from 'components/MovieCard';
 import { BASE_URL } from 'utils/request';
 // import './style.css';
 
